@@ -1,5 +1,6 @@
 const hostname = location.hostname;
 const reProdHost =/lingobus.com$/;
+const ua = navigator.userAgent;
 
 export default {
   a: !!hostname.match(/^(a[0-9]+)-/),
@@ -12,5 +13,8 @@ export default {
   },
   log () {
     console.log.apply(console, arguments);
+  },
+  isWechat () {
+    return !!ua.match(/MicroMessenger/i)
   }
 };
