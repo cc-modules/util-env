@@ -1,5 +1,5 @@
 const hostname = location.hostname;
-const reProdHost =/lingobus.com$/;
+const reProdHost =/vipkid.com.cn$/;
 const ua = navigator.userAgent;
 
 export default {
