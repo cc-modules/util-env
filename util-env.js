@@ -1,24 +1,34 @@
 const hostname = location.hostname;
-const reProdHost =/vipkid.com.cn$/;
+const reProdHost = /vipkid(teachers)?.com(.cn)?$/;
 const ua = navigator.userAgent;
-
+const ConsoleLogger = require('util-console-logger');
+const $logger = new ConsoleLogger('game');
 export default {
   a: !!hostname.match(/^(a[0-9]+)-/),
   local: !!hostname.match(/^(test-|localhost)/),
   prod: reProdHost.test(hostname),
   lang: (window.navigator.language || window.browserLanguage),
-  debug () {
+  debug (...args) {
     if (this.prod) return;
-    console.log.apply(console, arguments);
+    $logger.debug(...args);
   },
-  warn () {
-    console.warn.apply(console, arguments);
+  warn (...args) {
+    $logger.warn(...args);
   },
-  error () {
-    console.error.apply(console, arguments);
+  error (...args) {
+    $logger.error(...args);
   },
-  log () {
-    console.log.apply(console, arguments);
+  log (...args) {
+    $logger.log(...args);
+  },
+  group(...args) {
+    $logger.group(...args);
+  },
+  groupCollapsed(...args) {
+    $logger.groupCollapsed(...args);
+  },
+  groupEnd() {
+    $logger.groupEnd();
   },
   isWechat () {
     return !!ua.match(/MicroMessenger/i)
