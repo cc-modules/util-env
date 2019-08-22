@@ -12,7 +12,7 @@ export default {
     if (this.prod) return;
     $logger.debug(...args);
   },
-  info () {
+  info (...args) {
     $logger.info(...args);
   },
   warn (...args) {
