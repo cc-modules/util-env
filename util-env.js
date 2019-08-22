@@ -1,5 +1,5 @@
 const hostname = location.hostname;
-const reProdHost = /vipkid(teachers)?.com(.cn)?$/;
+const reProdHost =/vipkid.com.cn$/;
 const ua = navigator.userAgent;
 const ConsoleLogger = require('util-console-logger');
 const $logger = new ConsoleLogger('game');
@@ -11,6 +11,9 @@ export default {
   debug (...args) {
     if (this.prod) return;
     $logger.debug(...args);
+  },
+  info () {
+    $logger.info(...args);
   },
   warn (...args) {
     $logger.warn(...args);
