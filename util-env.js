@@ -1,13 +1,6 @@
-const hostname = location.hostname;
-const reProdHost =/vipkid.com.cn$/;
-const ua = navigator.userAgent;
 const ConsoleLogger = require('util-console-logger');
 const $logger = new ConsoleLogger('game');
 export default {
-  a: !!hostname.match(/^(a[0-9]+)-/),
-  local: !!hostname.match(/^(test-|localhost)/),
-  prod: reProdHost.test(hostname),
-  lang: (window.navigator.language || window.browserLanguage),
   debug (...args) {
     if (this.prod) return;
     $logger.debug(...args);
@@ -32,8 +25,5 @@ export default {
   },
   groupEnd() {
     $logger.groupEnd();
-  },
-  isWechat () {
-    return !!ua.match(/MicroMessenger/i)
   }
 };
