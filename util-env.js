@@ -1,6 +1,7 @@
 const ConsoleLogger = require('util-console-logger');
 const $logger = new ConsoleLogger('game');
 export default {
+  prod: !CC_DEBUG,
   debug (...args) {
     if (this.prod) return;
     $logger.debug(...args);

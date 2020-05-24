@@ -1,8 +1,5 @@
 {
   "name": "util-env",
-  "version": "1.0.0",
-  "description": "",
-  "main": "util-env.js",
-  "author": "wangweihua@vipkid.com.cn",
-  "license": "ISC"
+  "version": "1.0.1",
+  "description": ""
 }
